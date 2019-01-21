@@ -28,4 +28,6 @@ elif [ "$option" -eq "5" ]
 then
     echo "$command \"best[height<=1080]\"" > ~/.config/youtube-dl/config
 
+fi
+
 youtube-dl $1
