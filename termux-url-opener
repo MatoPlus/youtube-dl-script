@@ -1,11 +1,13 @@
 echo "Conversion Options:"
-echo "1. Audio Conversion"
+echo "1. Audio only"
 echo "2. 360p"
 echo "3. 480P"
 echo "4. 720p"
 echo "5. 1080p"
 
 command='-no-mtime -o /data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s -f'
+
+echo -n Choice:
 read option
 
 if [ "$option" -eq "1" ] 
@@ -30,4 +32,5 @@ then
 
 fi
 
+echo Converting video...
 youtube-dl $1
