@@ -1,36 +1,61 @@
+# Prompt
 echo "Conversion Options:"
 echo "1. Audio only"
-echo "2. 360p"
-echo "3. 480P"
-echo "4. 720p"
-echo "5. 1080p"
+echo "2. 360p Video"
+echo "3. 480P Video"
+echo "4. 720p Video"
+echo "5. 1080p Video"
+printf "\n"
 
-command='-no-mtime -o /data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s -f'
+# Directory paths for saving
+audio='-no-mtime -o /data/data/com.termux/files/home/storage/music/%(title)s.%(ext)s -f'
+video='-no-mtime -o /data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s -f'
 
-echo -n Choice:
-read option
+# Instantiate and initalize  variables
+option='0'
+first=true
+
+# Input process with small input validation
+while [ "$option" -le "0" ] || [ "$option" -ge "6" ]
+do
+    if [ "$first" = false ]
+    then
+        printf "\nPlease enter a valid option (1-5).\n"
+    fi
+    printf "Choice: "
+    read option
+    if [ "$first" = true ]
+    then 
+        first=false
+    fi
+done
 
 if [ "$option" -eq "1" ] 
 then
-    echo "$command 140" > ~/.config/youtube-dl/config
+    echo "$audio 140" > ~/.config/youtube-dl/config
+    echo Converting audio...
 
 elif [ "$option" -eq "2" ] 
 then
-    echo "$command \"best[height<=360]\"" > ~/.config/youtube-dl/config
-     
+    echo "$video \"best[height<=360]\"" > ~/.config/youtube-dl/config
+    echo Converting video...
+
 elif [ "$option" -eq "3" ] 
 then
-    echo "$command \"best[height<=480\"" > ~/.config/youtube-dl/config
+    echo "$video \"best[height<=480\"" > ~/.config/youtube-dl/config
+    echo Converting video...
 
 elif [ "$option" -eq "4" ] 
 then
-    echo "$command \"best[height<=720]\"" > ~/.config/youtube-dl/config
+    echo "$video \"best[height<=720]\"" > ~/.config/youtube-dl/config
+    echo Converting video...
 
 elif [ "$option" -eq "5" ] 
 then
-    echo "$command \"best[height<=1080]\"" > ~/.config/youtube-dl/config
+    echo "$video \"best[height<=1080]\"" > ~/.config/youtube-dl/config
+    echo Converting video...
 
 fi
 
-echo Converting video...
+
 youtube-dl $1
