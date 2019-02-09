@@ -1,5 +1,5 @@
 # Overview
-A simple bash script for youtube-dl for use in termux.
+A simple shell script for youtube-dl for use in termux.
 
 # Requirements
 - termux access to shared storage via command: termux-setup-storage
