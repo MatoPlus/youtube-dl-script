@@ -11,3 +11,5 @@ A simple shell script for youtube-dl for use in termux.
 # Usage
 1. Place script in the folder at ~/bin
 2. Go to any youtube video, press share with Termux 
+3. The command line should pop up, choose convert options and wait for the download.
+4. Done! The video should be in ~/storage/share/Youtube
