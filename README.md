@@ -9,4 +9,5 @@ A simple shell script for youtube-dl for use in termux.
 - download folder set up as ~/storage/shared/Youtube
 
 # Usage
-Place script in the folder at ~/bin
+1. Place script in the folder at ~/bin
+2. Go to any youtube video, press share with Termux 
